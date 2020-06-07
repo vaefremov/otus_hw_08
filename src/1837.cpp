@@ -95,7 +95,7 @@ int main()
         std::cin >> t;
         teams.push_back(t);
     }
-    std::map<std::string, std::set<std::string>> in_one_team;
+    OneTeam_t in_one_team;
     for(auto& t: teams) 
     {
         for(auto& m1: t)
