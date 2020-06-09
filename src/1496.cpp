@@ -4,7 +4,7 @@
 #include <map>
 
 
-std::ostream& operator<<(std::ostream& out, std::map<std::string, int> m)
+std::ostream& operator<<(std::ostream& out, std::map<std::string, int> const& m)
 {
     for(auto const& s:m)
     {

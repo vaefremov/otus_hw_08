@@ -17,7 +17,7 @@ std::istream& operator>>(std::istream& in, Team_t& team)
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, Dist_t dist)
+std::ostream& operator<<(std::ostream& out, Dist_t const& dist)
 {
     for(auto e: dist)
     {
@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& out, Dist_t dist)
     return out;
 }
 
-std::ostream& operator<<(std::ostream& out, std::set<std::string> s)
+std::ostream& operator<<(std::ostream& out, std::set<std::string> const& s)
 {
     for(auto& m:s)
     {
@@ -45,7 +45,7 @@ std::ostream& operator<<(std::ostream& out, std::set<std::string> s)
 }
 
 
-std::ostream& operator<<(std::ostream& out, Team_t s)
+std::ostream& operator<<(std::ostream& out, Team_t const& s)
 {
     for(auto& m:s)
     {
@@ -54,7 +54,7 @@ std::ostream& operator<<(std::ostream& out, Team_t s)
     return out;
 }
 
-Dist_t compute_dist(std::string main_name, OneTeam_t& one_team)
+Dist_t compute_dist(std::string const& main_name, OneTeam_t & one_team)
 {
     Dist_t res;
     for(auto& t:one_team)
@@ -96,7 +96,7 @@ int main()
         teams.push_back(t);
     }
     OneTeam_t in_one_team;
-    for(auto& t: teams) 
+    for(auto const& t: teams) 
     {
         for(auto& m1: t)
         {
@@ -110,13 +110,6 @@ int main()
             }
         }
     }
-    // std::cout << "--------- " << in_one_team.size() << std::endl;
-    // for(auto [m, t]: in_one_team)
-    // {
-    //     std::cout << m << ": ";
-    //     std::cout << t << std::endl;
-    // }
     Dist_t res = compute_dist("Isenbaev", in_one_team);
-    // std::cout << "--------- " << res.size() << std::endl;
     std::cout << res;
 }
